@@ -12,6 +12,10 @@ type bar struct {
 	e    complex64
 }
 
+func (b bar) dump() {
+	fmt.Printf("a: %v\nb: %v\nc: %v\nd: %v\ne: %v\n", b.a, b.b, b.c, b.d, b.e)
+}
+
 func main() {
 	b := true
 	fmt.Printf("b is a %T\n", b)
@@ -35,4 +39,7 @@ func main() {
 	mybar.c = true
 	mybar.e = complex(10.0, 5.0)
 	fmt.Printf("mybar: %v\n", mybar)
+
+	fmt.Println("\nmybar.dump:")
+	mybar.dump()
 }
