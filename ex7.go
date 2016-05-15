@@ -3,8 +3,6 @@ package main
 import "fmt"
 import "reflect"
 
-type foo int
-
 type bar struct {
 	a    int
 	b    float32
@@ -21,6 +19,7 @@ func main() {
 	fmt.Printf("b is a %T\n", b)
 	fmt.Println("The reflect package says b is a ", reflect.TypeOf(b))
 
+	type foo int
 	var c foo
 	fmt.Printf("\nc is a %T\n", c)
 	fmt.Println("The reflect package says c is a ", reflect.TypeOf(c))
@@ -31,6 +30,15 @@ func main() {
 	fmt.Printf("\nd is a %T\n", d)
 	fmt.Printf("e is a %T\n", e)
 	fmt.Printf("f is a %T\n", f)
+
+	var mymap map[string]string
+	fmt.Println("\nMyMap: ", mymap)
+	mymap["this"] = "will crash"
+
+	mymap = make(map[string]string)
+	mymap["foo"] = "bar"
+	mymap["wom"] = "bat"
+	fmt.Println("MyMap: ", mymap)
 
 	mybar := bar{}
 	fmt.Printf("\nmybar: %v\n", mybar)
